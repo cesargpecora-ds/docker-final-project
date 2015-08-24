@@ -1,1 +1,15 @@
-#Please complete this file
+web:
+  build: .
+  ports:
+  - "80:80"
+  volumes:
+  - ./worldapi:/opt/www/worldapi
+  links:
+  - db:mysql
+db:
+  image: mysql:5.6
+  environment:
+    MYSQL_ROOT_PASSWORD: secret
+    MYSQL_DATABASE: homestead 
+    MYSQL_USER: homestead
+    MYSQL_PASSWORD: secret
